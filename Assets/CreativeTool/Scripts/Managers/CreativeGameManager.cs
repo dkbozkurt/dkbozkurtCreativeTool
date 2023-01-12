@@ -19,10 +19,6 @@ namespace CreativeTool.Scripts.Managers
         {
             var iEnumerable = AttributeFinder.TryFindMethods<ShortcutAttribute>();
             ScanThroughMethodsWithIEnumerable(iEnumerable);
-
-            // var attributeList = iEnumerable.ToList();
-            // ScanThroughList(attributeList);
-            
         }
 
         private void Update()
@@ -33,28 +29,15 @@ namespace CreativeTool.Scripts.Managers
             }
         }
 
-        [ShortcutAttribute(KeyCode.F1,"Selammm")]
+        [ShortcutAttribute(KeyCode.F1,"F1 is the shortcut of bla bla!")]
         public void Debugger()
         {
             Debug.Log("F1 Pressed!");
         }
 
-        private void ScanThroughList(List<MethodInfo> list)
+        private void ScanThroughMethodsWithIEnumerable(IEnumerable<MethodInfo> methodInfos)
         {
-            foreach (var child in list)
-            {
-                var c = child.GetCustomAttribute<ShortcutAttribute>();
-                if ( c != null)
-                {
-                    Debug.Log("Key : " + c.Key);
-                    Debug.Log("Description : " + c.Description);
-                }
-            }
-        }
-        
-        private void ScanThroughMethodsWithIEnumerable(IEnumerable<MethodInfo> list)
-        {
-            foreach (var child in list)
+            foreach (var child in methodInfos)
             {
                 var c = child.GetCustomAttribute<ShortcutAttribute>();
                 if ( c != null)
