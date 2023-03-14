@@ -34,18 +34,30 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
             }
             
             GUILayout.Label("SHORTCUTS",EditorStyles.centeredGreyMiniLabel);
-            
-            EditorGUILayout.LabelField("Keys","Values",EditorStyles.boldLabel);
 
+            EditorGUILayout.BeginHorizontal();
+            
+            EditorGUILayout.LabelField("Keys",EditorStyles.boldLabel,GUILayout.Width(60));
+            EditorGUILayout.LabelField("Values",EditorStyles.boldLabel);
+            
+            // EditorGUILayout.LabelField("Keys","Values",EditorStyles.boldLabel);
+
+            EditorGUILayout.EndHorizontal();
+            
             EditorGUILayout.LabelField("",GUI.skin.horizontalSlider);
             
             for (int i = 0; i < _shortcutAttributesData.Count; i++)
             {
                 var element = _shortcutAttributesData.ElementAt(i);
-                EditorGUILayout.LabelField(
-                    element.Key.ToString(),
-                    element.Value.ToString(),
-                    EditorStyles.boldLabel);
+                
+                GUILayout.BeginHorizontal(GUI.skin.box);
+                
+                EditorGUILayout.LabelField(element.Key.ToString(), EditorStyles.whiteLabel, GUILayout.Width(50));
+                EditorGUILayout.LabelField(":",EditorStyles.whiteLabel,GUILayout.Width(10));
+                EditorGUILayout.LabelField(element.Value.ToString());
+                GUILayout.FlexibleSpace();
+
+                GUILayout.EndHorizontal();
             }
 
             // Pushes elements to the bottom
