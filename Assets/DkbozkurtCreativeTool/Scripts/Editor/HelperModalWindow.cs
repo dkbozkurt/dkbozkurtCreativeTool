@@ -37,13 +37,11 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
 
             EditorGUILayout.BeginHorizontal();
             
-            EditorGUILayout.LabelField("Keys",EditorStyles.boldLabel,GUILayout.Width(60));
-            EditorGUILayout.LabelField("Values",EditorStyles.boldLabel);
-            
-            // EditorGUILayout.LabelField("Keys","Values",EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("KEYS",EditorStyles.boldLabel,GUILayout.Width(60));
+            EditorGUILayout.LabelField("VALUES",EditorStyles.boldLabel);
 
             EditorGUILayout.EndHorizontal();
-            
+
             EditorGUILayout.LabelField("",GUI.skin.horizontalSlider);
             
             for (int i = 0; i < _shortcutAttributesData.Count; i++)
