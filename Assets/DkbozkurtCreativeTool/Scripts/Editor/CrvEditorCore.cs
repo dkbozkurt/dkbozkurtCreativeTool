@@ -1,7 +1,6 @@
 // Dogukan Kaan Bozkurt
 //      github.com/dkbozkurt
 
-using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -28,7 +27,13 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
 
         private static void SetEditorIcon(DkbCreativeToolManager window)
         {
+            // If you want to get texture from url follow below steps
+            // var url = "file://C:/Users/PTN-DOGUKAN/Downloads/asd.png";
+            // WWW _texture= new WWW(url);
+            // var texture = _texture.texture;
+            
             var texture = Resources.Load<Texture>("DkbozkurtCreativeToolResources/Textures/dkbozkurtIcon");
+
             window.titleContent = new GUIContent("Creative Tool", texture,
                 "Helpful tool for developing creative game contents for games.");
         }
@@ -43,7 +48,9 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
             
             EditorGUILayout.LabelField("",GUI.skin.horizontalSlider);
             
-            
+            // Check's if project in game mode, so you can avoid showing editor time purposed buttons. !!!
+            if(!Application.isPlaying)             
+                EditorGUILayout.LabelField("Dogukan",EditorStyles.boldLabel);
         }
         
         private void HelperModal()
