@@ -1,10 +1,10 @@
 // Dogukan Kaan Bozkurt
 //      github.com/dkbozkurt
 
-using UnityEngine;
 using System;
+using UnityEngine;
 
-namespace CreativeTool.Scripts.Attributes
+namespace DkbozkurtCreativeTool.Scripts.Attributes
 {
     /// <summary>
     /// Ref : https://answers.unity.com/questions/1304894/how-to-write-a-custom-attribute.html

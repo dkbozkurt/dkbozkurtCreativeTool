@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using UnityEngine;
 
-namespace CreativeTool.Scripts.Attributes
+namespace DkbozkurtCreativeTool.Scripts.Attributes
 {
     public static class AttributeFinder
     {
