@@ -57,22 +57,28 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
 
                 GUILayout.EndHorizontal();
             }
-
+            
             // Pushes elements to the bottom
             GUILayout.FlexibleSpace();
             
             GUILayout.BeginHorizontal();
+
+            var buttonSpacing = (position.width-10) / 5f;
             
+            GUILayout.BeginVertical(GUILayout.Width(4*buttonSpacing));
             if (GUILayout.Button("ReScan Attributes"))
             {
                 ScanShortcutsAttribute();    
             }
+            GUILayout.EndVertical();
             
+            GUILayout.BeginVertical(GUILayout.Width(buttonSpacing));
             if (GUILayout.Button("Exit"))
             {
                 _shortcutAttributesData.Clear();
                 Close();
             }
+            GUILayout.EndVertical();
             
             GUILayout.EndHorizontal();
         }
