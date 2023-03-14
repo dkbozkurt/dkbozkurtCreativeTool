@@ -23,15 +23,30 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
         {
             if (Input.GetKeyDown(KeyCode.F1))
             {
-                Debugger();
+                TestMethod1();
             }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                TestMethod2();
+            }
+            
+            
         }
 
-        [Shortcut(KeyCode.F1,"F1 is the shortcut of bla bla!")]
-        public void Debugger()
+        [Shortcut(KeyCode.F1,"F1 is the shortcut of TestMethod1!")]
+        public void TestMethod1()
         {
-            Debug.Log("F1 Pressed!");
+            Debug.Log("F1 Keycode Pressed!");
         }
+
+        [Shortcut(KeyCode.Q,"Q is the shortcut of TestMethod2")]
+        public void TestMethod2()
+        {
+            Debug.Log("Q Keycode Pressed!");   
+        }
+        
+        
         
         // private void ScanThroughMethodsWithIEnumerable(IEnumerable<MethodInfo> methodInfos)
         // {

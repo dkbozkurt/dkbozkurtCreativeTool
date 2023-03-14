@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using DkbozkurtCreativeTool.Scripts.Attributes;
 using System.Reflection;
 using UnityEditor;
@@ -9,7 +10,9 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
 {
     public class HelperModalWindow : EditorWindow
     {
-        public string choice = "";
+        private Dictionary<KeyCode, string> _shortcutAttributesData = new Dictionary<KeyCode, string>();
+
+        private bool _isInitialScanCalled = false;
 
         public static void Open()
         {
@@ -24,27 +27,51 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
 
         private void UIVisuals()
         {
-            GUILayout.Label("Header",EditorStyles.boldLabel);
+            if (!_isInitialScanCalled)
+            {
+                _isInitialScanCalled = true;
+                ScanShortcutsAttribute();
+            }
+            
+            GUILayout.Label("SHORTCUTS",EditorStyles.centeredGreyMiniLabel);
+            
+            EditorGUILayout.LabelField("Keys","Values",EditorStyles.boldLabel);
+
+            EditorGUILayout.LabelField("",GUI.skin.horizontalSlider);
+            
+            for (int i = 0; i < _shortcutAttributesData.Count; i++)
+            {
+                var element = _shortcutAttributesData.ElementAt(i);
+                EditorGUILayout.LabelField(
+                    element.Key.ToString(),
+                    element.Value.ToString(),
+                    EditorStyles.boldLabel);
+            }
+
+            // Pushes elements to the bottom
+            GUILayout.FlexibleSpace();
             
             GUILayout.BeginHorizontal();
-            GUILayout.Label("Choice");
-            choice = GUILayout.TextField(choice);
-            GUILayout.EndHorizontal();
             
-            GUILayout.Space(20);
-            
-            if (GUILayout.Button("Scan"))
+            if (GUILayout.Button("ReScan Attributes"))
             {
-                var iEnumerable = AttributeFinder.TryFindMethods<ShortcutAttribute>();
-                ScanThroughMethodsWithIEnumerable(iEnumerable);    
+                ScanShortcutsAttribute();    
             }
             
             if (GUILayout.Button("Exit"))
             {
-                
-                Debug.Log("Choice : " + choice);
+                _shortcutAttributesData.Clear();
                 Close();
             }
+            
+            GUILayout.EndHorizontal();
+        }
+        
+        private void ScanShortcutsAttribute()
+        {
+            _shortcutAttributesData.Clear();
+            var iEnumerable = AttributeFinder.TryFindMethods<ShortcutAttribute>();
+            ScanThroughMethodsWithIEnumerable(iEnumerable);
         }
         
         private void ScanThroughMethodsWithIEnumerable(IEnumerable<MethodInfo> methodInfos)
@@ -54,8 +81,9 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
                 var c = child.GetCustomAttribute<ShortcutAttribute>();
                 if ( c != null)
                 {
-                    Debug.Log("Key : " + c.Key);
-                    Debug.Log("Description : " + c.Description);
+                    _shortcutAttributesData.Add(c.Key,c.Description);
+                    // Debug.Log("Key : " + c.Key);
+                    // Debug.Log("Description : " + c.Description);
                 }
             }
         }
