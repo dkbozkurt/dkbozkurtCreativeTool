@@ -83,7 +83,7 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
                 _devNotesBackground.SetActive(false);
                 return;
             }
-            _devNotesTextZone.text = "<color=\"red\">Developer Notes:\n</color>" + "<color=\"grey\">" + _devNotes + "</color>";
+            _devNotesTextZone.text = "<color=\"red\">Developer Notes:\n</color>" + "<color=#DEDEDE>" + _devNotes + "</color>";
         }
 
         private void ScanShortcutsAttribute()
