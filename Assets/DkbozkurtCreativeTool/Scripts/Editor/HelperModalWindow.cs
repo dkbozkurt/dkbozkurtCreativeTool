@@ -52,7 +52,7 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
                 
                 EditorGUILayout.LabelField(element.Key.ToString(), EditorStyles.whiteLabel, GUILayout.Width(50));
                 EditorGUILayout.LabelField(":",EditorStyles.whiteLabel,GUILayout.Width(10));
-                EditorGUILayout.LabelField(element.Value.ToString());
+                EditorGUILayout.LabelField(element.Value.ToString(),GUILayout.Width(1000));
                 GUILayout.FlexibleSpace();
 
                 GUILayout.EndHorizontal();
