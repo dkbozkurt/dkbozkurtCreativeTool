@@ -21,7 +21,7 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.F1))
+            if (Input.GetKeyDown(KeyCode.F2))
             {
                 TestMethod1();
             }
@@ -34,10 +34,10 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
             
         }
 
-        [Shortcut(KeyCode.F1,"F1 is the shortcut of TestMethod1!")]
+        [Shortcut(KeyCode.F2,"F2 is the shortcut of TestMethod1!")]
         public void TestMethod1()
         {
-            Debug.Log("F1 Keycode Pressed!");
+            Debug.Log("F2 Keycode Pressed!");
         }
 
         [Shortcut(KeyCode.Q,"Q is the shortcut of TestMethod2")]

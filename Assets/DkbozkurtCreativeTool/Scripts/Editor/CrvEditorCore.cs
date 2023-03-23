@@ -49,8 +49,8 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
             EditorGUILayout.LabelField("",GUI.skin.horizontalSlider);
             
             // Check's if project in game mode, so you can avoid showing editor time purposed buttons. !!!
-            if(!Application.isPlaying)             
-                EditorGUILayout.LabelField("Dogukan",EditorStyles.boldLabel);
+            // if(!Application.isPlaying)             
+            //     EditorGUILayout.LabelField("Dogukan",EditorStyles.boldLabel); 
         }
         
         private void HelperModal()
@@ -58,7 +58,7 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
             GUILayout.BeginHorizontal();
             GUILayout.Label("Helper Modal Window",EditorStyles.boldLabel);
             
-            if (GUILayout.Button("Trigger Helper Modal Window",GUILayout.Width(200),GUILayout.Height(25)))
+            if (GUILayout.Button("Helper Modal Window Call",GUILayout.Width(200),GUILayout.Height(25)))
             {
                 HelperModalWindow.Open();
             }
@@ -77,7 +77,6 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
             }
             
             GUILayout.EndHorizontal();
-            _initializeOnStart = EditorGUILayout.Toggle("Initialize On Start", _initializeOnStart);
         }
     }
 }

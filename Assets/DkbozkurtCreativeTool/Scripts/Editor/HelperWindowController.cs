@@ -1,3 +1,4 @@
+using DkbozkurtCreativeTool.Scripts.Managers;
 using UnityEditor;
 using UnityEngine;
 
@@ -5,11 +6,24 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
 {
     public partial class DkbCreativeToolManager : EditorWindow
     {
-        private bool _initializeOnStart = true;
-
         private void CallHelperWindow()
         {
+            var CreativeHelperWindow = Resources.Load<GameObject>("DkbozkurtCreativeToolResources/Prefabs/CRV_HelperWindow");
             
+            if(IsActiveInScene(CreativeHelperWindow.name)) return;
+            
+            Instantiate(CreativeHelperWindow);
+        }
+
+        private bool IsActiveInScene(string nameOfHelperWindow)
+        {
+            if (GameObject.Find(nameOfHelperWindow) != null) return true;
+            
+            if (GameObject.Find(nameOfHelperWindow+"(Clone)") != null) return true;
+
+            if (FindObjectOfType<CreativeHelperWindowManager>() != null) return true;
+            
+            return false;
         }
     }
 }
