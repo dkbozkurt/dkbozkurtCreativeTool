@@ -13,10 +13,12 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
         [Header("Changeable Properties")]
         public bool InitializeOnStart = true;
 
+        [Multiline] [SerializeField] private string _devNotes;
+
         [Header("Inner Properties")]
         [SerializeField] private GameObject _helperWindowBackground;
-        [SerializeField] private TextMeshProUGUI _keysTextZone;
-        [SerializeField] private TextMeshProUGUI _valuesTextZone ;
+        [SerializeField] private TextMeshProUGUI _devNotesTextZone;
+        [SerializeField] private TextMeshProUGUI _keyValueTextZone;
 
         private Dictionary<KeyCode, string> _shortcutAttributesData = new Dictionary<KeyCode, string>();
         private bool _isHelperWindowActive;
@@ -25,6 +27,7 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
         {
             Close();
             _isHelperWindowActive = InitializeOnStart;
+            _keyValueTextZone.text = "<color=\"yellow\">SHORTCUTS:</color>\n";
         }
 
         private void Start()
@@ -33,6 +36,8 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
                 Open();
 
             ScanShortcutsAttribute();
+
+            SetDeveloperNotes();
         }
 
         private void Update()
@@ -63,9 +68,14 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
             {
                 var element = _shortcutAttributesData.ElementAt(i);
 
-                _keysTextZone.text += element.Key.ToString() + " :\n";
-                _valuesTextZone.text += " " + element.Value.ToString() + "\n";
+                _keyValueTextZone.text += "<color=\"green\">" + element.Key.ToString() + " : </color><color=\"white\">" 
+                    + element.Value.ToString() +"</color>\n";
             }
+        }
+
+        private void SetDeveloperNotes()
+        {
+            _devNotesTextZone.text = "<color=\"red\">Developer Notes:\n</color>" + "<color=\"grey\">" + _devNotes + "</color>";
         }
 
         private void ScanShortcutsAttribute()

@@ -31,10 +31,15 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
                 TestMethod2();
             }
             
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                TestMethod3();
+            }
+            
             
         }
 
-        [Shortcut(KeyCode.F2,"F2 is the shortcut of TestMethod1!")]
+        [Shortcut(KeyCode.F2,"F2 is the shortcut of TestMethod1! F2 is the shortcut of TestMethod1! F2 is the shortcut of TestMethod1!")]
         public void TestMethod1()
         {
             Debug.Log("F2 Keycode Pressed!");
@@ -44,6 +49,12 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
         public void TestMethod2()
         {
             Debug.Log("Q Keycode Pressed!");   
+        }
+        
+        [Shortcut(KeyCode.Space,"Space is the shortcut of TestMethod3")]
+        public void TestMethod3()
+        {
+            Debug.Log("Space Keycode Pressed!");   
         }
         
         
