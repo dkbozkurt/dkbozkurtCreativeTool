@@ -13,11 +13,14 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
         [Header("Changeable Properties")]
         public bool InitializeOnStart = true;
 
-        [Multiline] [SerializeField] private string _devNotes;
+        [Multiline] [SerializeField] private string _devNotes = "If you are having any sort of unexpected problem. Mind Clear All playerPrefs.";
 
         [Header("Inner Properties")]
         [SerializeField] private GameObject _helperWindowBackground;
+        [Space]
+        [SerializeField] private GameObject _devNotesBackground;
         [SerializeField] private TextMeshProUGUI _devNotesTextZone;
+        [Space]
         [SerializeField] private TextMeshProUGUI _keyValueTextZone;
 
         private Dictionary<KeyCode, string> _shortcutAttributesData = new Dictionary<KeyCode, string>();
@@ -75,6 +78,11 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
 
         private void SetDeveloperNotes()
         {
+            if (_devNotes == "")
+            {
+                _devNotesBackground.SetActive(false);
+                return;
+            }
             _devNotesTextZone.text = "<color=\"red\">Developer Notes:\n</color>" + "<color=\"grey\">" + _devNotes + "</color>";
         }
 
