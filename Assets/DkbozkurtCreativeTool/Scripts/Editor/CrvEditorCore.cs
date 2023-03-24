@@ -40,11 +40,16 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
 
         private void UIVisuals()
         {
+            GUILayout.Space(10);
             HelperModal();
             
             EditorGUILayout.LabelField("",GUI.skin.horizontalSlider);
             
             HelperWindow();
+            
+            EditorGUILayout.LabelField("",GUI.skin.horizontalSlider);
+            
+            UIMouseFollowerHand();
             
             EditorGUILayout.LabelField("",GUI.skin.horizontalSlider);
             
@@ -56,6 +61,7 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
         private void HelperModal()
         {
             GUILayout.BeginHorizontal();
+            
             GUILayout.Label("Helper Modal Window",EditorStyles.boldLabel);
             
             if (GUILayout.Button("Helper Modal Window Call",GUILayout.Width(200),GUILayout.Height(25)))
@@ -74,6 +80,19 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
             if (GUILayout.Button("Import Helper Window",GUILayout.Width(200),GUILayout.Height(25)))
             {
                 CallHelperWindow();
+            }
+            
+            GUILayout.EndHorizontal();
+        }
+
+        private void UIMouseFollowerHand()
+        {
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Mouse Follower Hand",EditorStyles.boldLabel);
+            
+            if (GUILayout.Button("Import Mouse Follower Hand",GUILayout.Width(200),GUILayout.Height(25)))
+            {
+                CallMouseFollowerHand();
             }
             
             GUILayout.EndHorizontal();
