@@ -8,7 +8,9 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
     {
         private void CallHelperWindow()
         {
-            var CreativeHelperWindow = Resources.Load<GameObject>("DkbozkurtCreativeToolResources/Prefabs/CRV_HelperWindow");
+            // var CreativeHelperWindow = Resources.Load<GameObject>("DkbozkurtCreativeToolResources/Prefabs/CRV_HelperWindow");
+            var CreativeHelperWindow = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/DkbozkurtCreativeTool/Prefabs/CRV_HelperWindow.prefab");
+            
             
             if(IsActiveInScene(CreativeHelperWindow.name)) return;
             

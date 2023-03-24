@@ -31,8 +31,9 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
             // var url = "file://C:/Users/PTN-DOGUKAN/Downloads/asd.png";
             // WWW _texture= new WWW(url);
             // var texture = _texture.texture;
-            
-            var texture = Resources.Load<Texture>("DkbozkurtCreativeToolResources/Textures/dkbozkurtIcon");
+
+            var texture = AssetDatabase.LoadAssetAtPath<Texture>("Assets/DkbozkurtCreativeTool/Textures/dkbozkurtIcon.png");
+            //var texture = Resources.Load<Texture>("DkbozkurtCreativeToolResources/Textures/dkbozkurtIcon");
 
             window.titleContent = new GUIContent("Creative Tool", texture,
                 "Helpful tool for developing creative game contents for games.");
