@@ -9,12 +9,8 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
         private void CallMouseFollowerHand()
         {
             if (PreChecker()) return;
-
-            if (GameObject.Find("Canvas") == null)
-            {
-                GenerateCanvas();
-            }
             
+            CreateMouseFollowerHand();
         }
         
         private bool PreChecker()
@@ -22,6 +18,25 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
             if (FindObjectOfType<CreativeUIManager>() != null) return true;
 
             return false;
+        }
+
+        private void CreateMouseFollowerHand()
+        {
+            Transform parentCanvas;
+            
+            if (GameObject.Find("Canvas") == null)
+            {
+                parentCanvas = GenerateNGetCanvas().transform;
+            }
+            else
+            {
+                parentCanvas = GameObject.Find("Canvas").transform;
+            }
+
+            var MouseFollowerHandPrefab =
+                AssetDatabase.LoadAssetAtPath<GameObject>(
+                    "Assets/DkbozkurtCreativeTool/Prefabs/CreativeMouseFollowerHand.prefab");
+            Instantiate(MouseFollowerHandPrefab, parentCanvas);
         }
     }
 }

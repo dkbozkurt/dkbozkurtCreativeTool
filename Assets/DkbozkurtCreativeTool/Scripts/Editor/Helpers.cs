@@ -23,6 +23,25 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
             eventSystem.AddComponent<EventSystem>();
             eventSystem.AddComponent<StandaloneInputModule>();
         }
+
+        private GameObject GenerateNGetCanvas()
+        {
+            var canvas = new GameObject("Canvas");
+            canvas.AddComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
+            var canvasScaler = canvas.AddComponent<CanvasScaler>();
+            canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            canvasScaler.referenceResolution = new Vector2(1125, 2436);
+            canvasScaler.matchWidthOrHeight =1f;
+            canvas.AddComponent<GraphicRaycaster>();
+
+            if(GameObject.Find("Event System")) return canvas;
+            
+            var eventSystem = new GameObject("Event System");
+            eventSystem.AddComponent<EventSystem>();
+            eventSystem.AddComponent<StandaloneInputModule>();
+
+            return canvas;
+        }
         
         private GameObject GenerateUIObject(string name,Transform parent= null)
         {
