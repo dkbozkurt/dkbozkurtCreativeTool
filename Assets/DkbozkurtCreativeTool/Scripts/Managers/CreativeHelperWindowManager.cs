@@ -23,6 +23,10 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
         [Space]
         [SerializeField] private TextMeshProUGUI _keyValueTextZone;
 
+        [Space] 
+        [SerializeField] private TextMeshProUGUI _footerMainText;
+        [SerializeField] private TextMeshProUGUI _footerSignatureText;
+
         private Dictionary<KeyCode, string> _shortcutAttributesData = new Dictionary<KeyCode, string>();
         private bool _isHelperWindowActive;
         
@@ -30,7 +34,7 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
         {
             Close();
             _isHelperWindowActive = InitializeOnStart;
-            _keyValueTextZone.text = "<color=\"yellow\">SHORTCUTS:</color>\n";
+            SetFooterText();
         }
 
         private void Start()
@@ -38,9 +42,9 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
             if (InitializeOnStart)
                 Open();
 
-            ScanShortcutsAttribute();
-
             SetDeveloperNotes();
+            
+            ScanShortcutsAttribute();
         }
 
         private void Update()
@@ -65,17 +69,6 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
             _isHelperWindowActive = false;
         }
 
-        private void SetKeysAndValues()
-        {
-            for (int i = 0; i < _shortcutAttributesData.Count; i++)
-            {
-                var element = _shortcutAttributesData.ElementAt(i);
-
-                _keyValueTextZone.text += "<color=\"green\">" + element.Key.ToString() + " : </color><color=\"white\">" 
-                    + element.Value.ToString() +"</color>\n";
-            }
-        }
-
         private void SetDeveloperNotes()
         {
             if (_devNotes == "")
@@ -85,6 +78,26 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
             }
             _devNotesTextZone.text = "<color=\"red\">Developer Notes:\n</color>" + "<color=#DEDEDE>" + _devNotes + "</color>";
         }
+        
+        private void SetKeysAndValues()
+        {
+            _keyValueTextZone.text = "<color=\"yellow\">SHORTCUTS:</color>\n";
+
+            for (int i = 0; i < _shortcutAttributesData.Count; i++)
+            {
+                var element = _shortcutAttributesData.ElementAt(i);
+
+                _keyValueTextZone.text += "<color=\"green\">" + element.Key.ToString() + " : </color><color=\"white\">" 
+                    + element.Value.ToString() +"</color>\n";
+            }
+        }
+
+        private void SetFooterText()
+        {
+            _footerMainText.text = "F1 to toggle helper window.";
+            _footerSignatureText.text = "<color=\"black\">dkbozkurt</color>";
+        }
+        
 
         private void ScanShortcutsAttribute()
         {
