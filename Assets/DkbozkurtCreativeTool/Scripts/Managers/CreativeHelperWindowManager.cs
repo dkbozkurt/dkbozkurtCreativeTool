@@ -56,7 +56,7 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
             }
         }
 
-        [Shortcut(KeyCode.F1,"Toggle Creative Helper Window")]
+        [CreativeShortcut(KeyCode.F1,"Toggle Creative Helper Window")]
         public void Open()
         {
             _helperWindowBackground.gameObject.SetActive(true);
@@ -102,7 +102,7 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
         private void ScanShortcutsAttribute()
         {
             _shortcutAttributesData.Clear();
-            var iEnumerable = AttributeFinder.TryFindMethods<ShortcutAttribute>();
+            var iEnumerable = AttributeFinder.TryFindMethods<CreativeShortcutAttribute>();
             ScanThroughMethodsWithIEnumerable(iEnumerable);
         }
         
@@ -110,7 +110,7 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
         {
             foreach (var child in methodInfos)
             {
-                var c = child.GetCustomAttribute<ShortcutAttribute>();
+                var c = child.GetCustomAttribute<CreativeShortcutAttribute>();
                 if ( c != null)
                 {
                     _shortcutAttributesData.Add(c.Key,c.Description);

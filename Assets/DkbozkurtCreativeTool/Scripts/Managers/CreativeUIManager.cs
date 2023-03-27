@@ -1,4 +1,5 @@
 using System;
+using DkbozkurtCreativeTool.Scripts.Attributes;
 using UnityEngine;
 
 namespace DkbozkurtCreativeTool.Scripts.Managers
@@ -23,7 +24,7 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
             }
 
         }
-
+        
         private void MouseFollowerHandSetter()
         {
             

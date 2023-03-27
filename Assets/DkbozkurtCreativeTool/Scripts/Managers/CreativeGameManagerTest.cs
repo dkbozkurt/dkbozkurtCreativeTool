@@ -39,19 +39,19 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
             
         }
 
-        [Shortcut(KeyCode.F2,"F2 is the shortcut of TestMethod1! F2 is the shortcut of TestMethod1! F2 is the shortcut of TestMethod1!")]
+        [CreativeShortcut(KeyCode.F2,"F2 is the shortcut of TestMethod1! F2 is the shortcut of TestMethod1! F2 is the shortcut of TestMethod1!")]
         public void TestMethod1()
         {
             Debug.Log("F2 Keycode Pressed!");
         }
 
-        [Shortcut(KeyCode.Q,"Q is the shortcut of TestMethod2")]
+        [CreativeShortcut(KeyCode.Q,"Q is the shortcut of TestMethod2")]
         public void TestMethod2()
         {
             Debug.Log("Q Keycode Pressed!");   
         }
         
-        [Shortcut(KeyCode.Space,"Space is the shortcut of TestMethod3")]
+        [CreativeShortcut(KeyCode.Space,"Space is the shortcut of TestMethod3")]
         public void TestMethod3()
         {
             Debug.Log("Space Keycode Pressed!");   

@@ -86,7 +86,7 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
         private void ScanShortcutsAttribute()
         {
             _shortcutAttributesData.Clear();
-            var iEnumerable = AttributeFinder.TryFindMethods<ShortcutAttribute>();
+            var iEnumerable = AttributeFinder.TryFindMethods<CreativeShortcutAttribute>();
             ScanThroughMethodsWithIEnumerable(iEnumerable);
         }
         
@@ -94,7 +94,7 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
         {
             foreach (var child in methodInfos)
             {
-                var c = child.GetCustomAttribute<ShortcutAttribute>();
+                var c = child.GetCustomAttribute<CreativeShortcutAttribute>();
                 if ( c != null)
                 {
                     _shortcutAttributesData.Add(c.Key,c.Description);

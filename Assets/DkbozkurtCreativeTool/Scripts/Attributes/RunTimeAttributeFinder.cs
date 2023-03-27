@@ -27,13 +27,13 @@ namespace DkbozkurtCreativeTool.Scripts.Attributes
                                                                        BindingFlags.Public);
                 for (int i = 0; i < objectMethods.Length; i++)
                 {
-                    ShortcutAttribute shortcutAttribute = Attribute.GetCustomAttribute(objectMethods[i],
-                        typeof(ShortcutAttribute)) as ShortcutAttribute;
+                    CreativeShortcutAttribute creativeShortcutAttribute = Attribute.GetCustomAttribute(objectMethods[i],
+                        typeof(CreativeShortcutAttribute)) as CreativeShortcutAttribute;
 
-                    if (shortcutAttribute != null)
+                    if (creativeShortcutAttribute != null)
                     {
-                        Debug.Log("Key Value : " + shortcutAttribute.Key.ToString());
-                        Debug.Log("Description Value : " + shortcutAttribute.Description);
+                        Debug.Log("Key Value : " + creativeShortcutAttribute.Key.ToString());
+                        Debug.Log("Description Value : " + creativeShortcutAttribute.Description);
                         Debug.Log("Name of the method with attribute : " + objectMethods[i].Name);
                     }
                 }
