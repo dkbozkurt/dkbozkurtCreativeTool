@@ -1,9 +1,7 @@
-using System;
 using DG.Tweening;
-using DkbozkurtCreativeTool.Scripts.Attributes;
 using UnityEngine;
 
-namespace DkbozkurtCreativeTool.Scripts.Managers
+namespace CreativeTool.Scripts.Managers
 {
     public class CreativeUIManager : MonoBehaviour
     {

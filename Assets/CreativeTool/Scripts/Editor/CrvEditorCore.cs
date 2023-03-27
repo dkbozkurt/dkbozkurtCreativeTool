@@ -1,22 +1,16 @@
-// Dogukan Kaan Bozkurt
-//      github.com/dkbozkurt
-
 using UnityEditor;
 using UnityEngine;
 
-namespace DkbozkurtCreativeTool.Scripts.Editor
+namespace CreativeTool.Scripts.Editor
 {
-    /// <summary>
-    /// Ref : 
-    /// </summary>
-    public partial class DkbCreativeToolManager : EditorWindow
+    public partial class CreativeToolManager : EditorWindow
     {
         private GameObject _creativeParentCanvas;
 
-        [MenuItem("Tools/Dkbozkurt/CreativeTool")]
+        [MenuItem("Tools/CreativeTool")]
         public static void ShowWindow()
         {
-            var window = GetWindow<DkbCreativeToolManager>(typeof(SceneView));
+            var window = GetWindow<CreativeTool.Scripts.Editor.CreativeToolManager>(typeof(SceneView));
             SetEditorIcon(window);
         }
 
@@ -25,15 +19,14 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
             UIVisuals();
         }
 
-        private static void SetEditorIcon(DkbCreativeToolManager window)
+        private static void SetEditorIcon(CreativeTool.Scripts.Editor.CreativeToolManager window)
         {
             // If you want to get texture from url follow below steps
             // var url = "file://C:/Users/PTN-DOGUKAN/Downloads/asd.png";
             // WWW _texture= new WWW(url);
             // var texture = _texture.texture;
 
-            var texture = AssetDatabase.LoadAssetAtPath<Texture>("Assets/DkbozkurtCreativeTool/Textures/dkbozkurtIcon.png");
-            //var texture = Resources.Load<Texture>("DkbozkurtCreativeToolResources/Textures/dkbozkurtIcon");
+            var texture = AssetDatabase.LoadAssetAtPath<Texture>("Assets/CreativeTool/Textures/CreativeToolIcon.png");
 
             window.titleContent = new GUIContent("Creative Tool", texture,
                 "Helpful tool for developing creative game contents for games.");

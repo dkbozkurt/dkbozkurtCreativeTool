@@ -1,16 +1,8 @@
-// Dogukna Kaan Bozkurt
-//      github.com/dkbozkurt
-
-using System.Collections.Generic;
-using System.Reflection;
-using DkbozkurtCreativeTool.Scripts.Attributes;
+using CreativeTool.Scripts.Attributes;
 using UnityEngine;
 
-namespace DkbozkurtCreativeTool.Scripts.Managers
+namespace CreativeTool.Scripts.Managers
 {
-    /// <summary>
-    /// Ref:
-    /// </summary>
     public class CreativeGameManagerTest : MonoBehaviour
     {
         // private void Start()
@@ -25,7 +17,7 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
             {
                 TestMethod1();
             }
-
+        
             if (Input.GetKeyDown(KeyCode.W))
             {
                 TestMethod2();
@@ -38,13 +30,13 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
             
             
         }
-
+        
         [CreativeShortcut(KeyCode.F2,"F2 is the shortcut of TestMethod1! F2 is the shortcut of TestMethod1! F2 is the shortcut of TestMethod1!")]
         public void TestMethod1()
         {
             Debug.Log("F2 Keycode Pressed!");
         }
-
+        
         [CreativeShortcut(KeyCode.W,"W is the shortcut of TestMethod2")]
         public void TestMethod2()
         {

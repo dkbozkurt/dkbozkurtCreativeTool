@@ -1,12 +1,11 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using DkbozkurtCreativeTool.Scripts.Attributes;
+using CreativeTool.Scripts.Attributes;
 using TMPro;
 using UnityEngine;
 
-namespace DkbozkurtCreativeTool.Scripts.Managers
+namespace CreativeTool.Scripts.Managers
 {
     public class CreativeHelperWindowManager : MonoBehaviour
     {
@@ -95,7 +94,7 @@ namespace DkbozkurtCreativeTool.Scripts.Managers
         private void SetFooterText()
         {
             _footerMainText.text = "F1 to toggle helper window.";
-            _footerSignatureText.text = "<color=\"black\">dkbozkurt</color>";
+            _footerSignatureText.text = "<color=\"black\"></color>";
         }
         
 

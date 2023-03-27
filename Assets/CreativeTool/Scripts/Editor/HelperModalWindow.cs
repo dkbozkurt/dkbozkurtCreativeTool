@@ -1,12 +1,11 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using DkbozkurtCreativeTool.Scripts.Attributes;
 using System.Reflection;
+using CreativeTool.Scripts.Attributes;
 using UnityEditor;
 using UnityEngine;
 
-namespace DkbozkurtCreativeTool.Scripts.Editor
+namespace CreativeTool.Scripts.Editor
 {
     public class HelperModalWindow : EditorWindow
     {

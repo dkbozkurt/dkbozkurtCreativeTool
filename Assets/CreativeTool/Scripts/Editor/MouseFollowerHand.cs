@@ -1,10 +1,10 @@
-using DkbozkurtCreativeTool.Scripts.Managers;
+using CreativeTool.Scripts.Managers;
 using UnityEditor;
 using UnityEngine;
 
-namespace DkbozkurtCreativeTool.Scripts.Editor
+namespace CreativeTool.Scripts.Editor
 {
-    public partial class DkbCreativeToolManager : EditorWindow
+    public partial class CreativeToolManager : EditorWindow
     {
         private void CallMouseFollowerHand()
         {
@@ -35,7 +35,7 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
 
             var MouseFollowerHandPrefab =
                 AssetDatabase.LoadAssetAtPath<GameObject>(
-                    "Assets/DkbozkurtCreativeTool/Prefabs/CreativeMouseFollowerHand.prefab");
+                    "Assets/CreativeTool/Prefabs/CreativeMouseFollowerHand.prefab");
             Instantiate(MouseFollowerHandPrefab, parentCanvas);
         }
     }

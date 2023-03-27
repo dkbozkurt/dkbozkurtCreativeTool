@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace DkbozkurtCreativeTool.Scripts.Attributes
+namespace CreativeTool.Scripts.Attributes
 {
     public static class AttributeFinder
     {

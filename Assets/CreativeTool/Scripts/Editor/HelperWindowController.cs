@@ -1,17 +1,15 @@
-using DkbozkurtCreativeTool.Scripts.Managers;
+using CreativeTool.Scripts.Managers;
 using UnityEditor;
 using UnityEngine;
 
-namespace DkbozkurtCreativeTool.Scripts.Editor
+namespace CreativeTool.Scripts.Editor
 {
-    public partial class DkbCreativeToolManager : EditorWindow
+    public partial class CreativeToolManager : EditorWindow
     {
         private void CallHelperWindow()
         {
-            // var CreativeHelperWindow = Resources.Load<GameObject>("DkbozkurtCreativeToolResources/Prefabs/CRV_HelperWindow");
-            var CreativeHelperWindow = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/DkbozkurtCreativeTool/Prefabs/CRV_HelperWindow.prefab");
-            
-            
+            var CreativeHelperWindow = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/CreativeTool/Prefabs/CRV_HelperWindow.prefab");
+
             if(IsActiveInScene(CreativeHelperWindow.name)) return;
             
             Instantiate(CreativeHelperWindow);

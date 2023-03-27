@@ -3,9 +3,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace DkbozkurtCreativeTool.Scripts.Editor
+namespace CreativeTool.Scripts.Editor
 {
-    public partial class DkbCreativeToolManager : EditorWindow
+    public partial class CreativeToolManager : EditorWindow
     {
         private void GenerateCanvas()
         {

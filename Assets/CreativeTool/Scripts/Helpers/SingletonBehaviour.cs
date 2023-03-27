@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DkbozkurtCreativeTool.Scripts.Helpers
+namespace CreativeTool.Scripts.Helpers
 {
     public abstract class SingletonBehaviour<T> : MonoBehaviour where T : MonoBehaviour
     {
