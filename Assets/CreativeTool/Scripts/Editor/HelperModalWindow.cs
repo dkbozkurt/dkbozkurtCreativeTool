@@ -57,7 +57,6 @@ namespace CreativeTool.Scripts.Editor
                 GUILayout.EndHorizontal();
             }
             
-            // Pushes elements to the bottom
             GUILayout.FlexibleSpace();
             
             GUILayout.BeginHorizontal();

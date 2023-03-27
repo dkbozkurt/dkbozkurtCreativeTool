@@ -9,6 +9,7 @@ namespace CreativeTool.Scripts.Editor
         private void CallHelperWindow()
         {
             var CreativeHelperWindow = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/CreativeTool/Prefabs/CRV_HelperWindow.prefab");
+            GenerateEventSystem();
 
             if(IsActiveInScene(CreativeHelperWindow.name)) return;
             

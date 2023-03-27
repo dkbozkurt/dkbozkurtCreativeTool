@@ -16,12 +16,8 @@ namespace CreativeTool.Scripts.Editor
             canvasScaler.referenceResolution = new Vector2(1125, 2436);
             canvasScaler.matchWidthOrHeight =1f;
             canvas.AddComponent<GraphicRaycaster>();
-
-            if(GameObject.Find("Event System")) return;
             
-            var eventSystem = new GameObject("Event System");
-            eventSystem.AddComponent<EventSystem>();
-            eventSystem.AddComponent<StandaloneInputModule>();
+            GenerateEventSystem();
         }
 
         private GameObject GenerateNGetCanvas()
@@ -33,14 +29,19 @@ namespace CreativeTool.Scripts.Editor
             canvasScaler.referenceResolution = new Vector2(1125, 2436);
             canvasScaler.matchWidthOrHeight =1f;
             canvas.AddComponent<GraphicRaycaster>();
+            
+            GenerateEventSystem();
 
-            if(GameObject.Find("Event System")) return canvas;
+            return canvas;
+        }
+
+        private void GenerateEventSystem()
+        {
+            if(GameObject.Find("Event System")) return;
             
             var eventSystem = new GameObject("Event System");
             eventSystem.AddComponent<EventSystem>();
             eventSystem.AddComponent<StandaloneInputModule>();
-
-            return canvas;
         }
         
         private GameObject GenerateUIObject(string name,Transform parent= null)

@@ -34,6 +34,8 @@ namespace CreativeTool.Scripts.Managers
             Close();
             _isHelperWindowActive = InitializeOnStart;
             SetFooterText();
+            
+            DontDestroyOnLoad(this.gameObject);
         }
 
         private void Start()
