@@ -37,6 +37,8 @@ namespace CreativeTool.Scripts.Editor
             GUILayout.Space(10);
             HelperModal();
             
+            if(Application.isPlaying) return;
+            
             EditorGUILayout.LabelField("",GUI.skin.horizontalSlider);
             
             HelperWindow();
@@ -47,9 +49,6 @@ namespace CreativeTool.Scripts.Editor
             
             EditorGUILayout.LabelField("",GUI.skin.horizontalSlider);
             
-            // Check's if project in game mode, so you can avoid showing editor time purposed buttons. !!!
-            // if(!Application.isPlaying)             
-            //     EditorGUILayout.LabelField("Dogukan",EditorStyles.boldLabel); 
         }
         
         private void HelperModal()

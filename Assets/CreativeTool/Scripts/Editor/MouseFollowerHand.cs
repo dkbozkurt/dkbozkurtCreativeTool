@@ -6,6 +6,7 @@ namespace CreativeTool.Scripts.Editor
 {
     public partial class CreativeToolManager : EditorWindow
     {
+        private readonly string CANVAS_NAME = "CreativeMouseFollowerHandCanvas";
         private void CallMouseFollowerHand()
         {
             if (PreChecker()) return;
@@ -24,14 +25,17 @@ namespace CreativeTool.Scripts.Editor
         {
             Transform parentCanvas;
             
-            if (GameObject.Find("Canvas") == null)
+            if (GameObject.Find(CANVAS_NAME) == null)
             {
                 parentCanvas = GenerateNGetCanvas().transform;
             }
             else
             {
-                parentCanvas = GameObject.Find("Canvas").transform;
+                parentCanvas = GameObject.Find(CANVAS_NAME).transform;
             }
+            
+            parentCanvas.name = CANVAS_NAME;
+            parentCanvas.GetComponent<Canvas>().sortingOrder = 300;
 
             var MouseFollowerHandPrefab =
                 AssetDatabase.LoadAssetAtPath<GameObject>(
