@@ -354,6 +354,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8904355c205f5ab42b528e2932ce9149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _handImagesParent: {fileID: 6146971082886527528}
+  _handImages:
+  - {fileID: 6146971082561904904}
+  - {fileID: 6022743339427270561}
+  - {fileID: 3980911202271650538}
+  - {fileID: 5703115670133644802}
+  - {fileID: 5366540129716728515}
 --- !u!1 &6146971082561904904
 GameObject:
   m_ObjectHideFlags: 0
