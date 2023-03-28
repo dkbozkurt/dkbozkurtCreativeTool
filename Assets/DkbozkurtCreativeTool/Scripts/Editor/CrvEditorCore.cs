@@ -46,6 +46,8 @@ namespace DkbozkurtCreativeTool.Scripts.Editor
             
             EditorGUILayout.LabelField("",GUI.skin.horizontalSlider);
             
+            if(Application.isPlaying) return;
+            
             HelperWindow();
             
             EditorGUILayout.LabelField("",GUI.skin.horizontalSlider);
